@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "videojuegos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "titulo": { "type": "string" },
+          "genero": { "type": "string" },
+          "precio": { "type": "number" },
+          "imagen": { "type": "string", "format": "uri" },
+          "desarrolladores": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "integer" },
+                "nombre": { "type": "string" },
+                "pais": { "type": "string" }
+              },
+              "required": ["id", "nombre", "pais"]
+            }
+          }
+        },
+        "required": ["id", "titulo", "genero", "precio", "imagen", "desarrolladores"]
+      }
+    }
+  },
+  "required": ["videojuegos"]
+}

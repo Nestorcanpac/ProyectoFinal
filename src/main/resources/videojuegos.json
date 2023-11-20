@@ -1,0 +1,53 @@
+{
+  "videojuegos": [
+    {
+      "id": 1,
+      "titulo": "Call of Duty ",
+      "genero": "First Person Shooter",
+      "precio": 79.99,
+      "imagen": "https://esports.as.com/2020/08/21/call-of-duty/Todas-portadas-Call-of-Duty_1384671545_481695_1024x1365.jpg",
+      "desarrolladores": [
+        {
+          "id": 1,
+          "nombre": "David Bonderhart",
+          "pais": "Estados Unidos"
+        },
+        {
+          "id": 1,
+          "nombre": "Alice Johnson",
+          "pais": "Canadá"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "WarThunder",
+      "genero": "Aviación",
+      "precio": 20.99,
+      "imagen": "https://estaticos-cdn.sport.es/clip/f1ed6a3d-8068-4be4-85e2-90426ae059a2_alta-libre-aspect-ratio_default_0.jpg",
+      "desarrolladores": [
+        {
+          "id": 2,
+          "nombre": "Gaying",
+          "pais": "Rusia"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "titulo": "Assassin's Creed",
+      "genero": "Action-Adventure",
+      "precio": 49.99,
+      "imagen": "https://www.esferalibros.com/wp-content/uploads/2021/04/principal-portada-assasins-creed-unity-es-662x1024.jpg",
+      "desarrolladores": [
+        {
+          "id": 3,
+          "nombre": "Maria Rodriguez",
+          "pais": "Francia"
+        }
+      ]
+    }
+  ]
+}
+
+
