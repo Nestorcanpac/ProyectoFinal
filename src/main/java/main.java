@@ -66,7 +66,7 @@ public class main {
 
             Context context=new Context();
 
-            context.setVariable("Videojuegos",root);
+            context.setVariable("videojuegos",root.getVideojuegos());
 
             String contingutHTML= templateEngine.process("index",context);
 
