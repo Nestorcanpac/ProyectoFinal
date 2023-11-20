@@ -2,53 +2,53 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Detalls de les Ciutats</title>
-    <link rel="stylesheet" type="text/css" href="../css/ciutat.css">
+    <title>Videojuegos</title>
 </head>
 <body>
 <h1>Listas Videojuegos</h1>
 <th:block th:if="${videojuegos != null}">
 <table>
-    <tr>
-        <th>ID</th>
-        <th>Título</th>
-        <th>Género</th>
-        <th>Imagen</th>
-        <th>Precio</th>
-        <th>Desarrollador</th>
-    </tr>
-    <tr th:each="videojuego : ${videojuegos}">
-    <tr>
-        <td th:text="$videojuego.id">--</td>
-        <td th:text="$videojuego.titulo">--</td>
-        <td th:text="$videojuego.genero">--</td>
-        <td th:text="$videojuego.imagen">--</td>
-        <td> th:text="$videojuego.precio">--</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td colspan="3">
-            <!-- Tabla Anidada -->
-            <h3>Tabla Anidada</h3>
-            <table border="1">
-                <tr>
-                    <th>Encabezado A</th>
-                    <th>Encabezado B</th>
-                </tr>
-                <tr>
-                    <td>Fila A, Celda 1</td>
-                    <td>Fila A, Celda 2</td>
-                </tr>
-                <tr>
-                    <td>Fila B, Celda 1</td>
-                    <td>Fila B, Celda 2</td>
-                </tr>
-            </table>
-        </td>
-    </tr>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Género</th>
+            <th>Imagen</th>
+            <th>Precio</th>
+            <th>Desarrollador</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="videojuego : ${videojuegos}">
+        <tr>
+            <td th:text="$videojuego.id">--</td>
+            <td th:text="$videojuego.titulo">--</td>
+            <td th:text="$videojuego.genero">--</td>
+            <td>
+                <img src="$videojuego.imagen" alt="Imagen de la caratula"/>
+            </td>
+            <td th:text="$videojuego.precio">--</td>
+            <td>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Pais</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="desarrollador : ${videojuego.desarrolladores}">
+                            <td th:text="$desarrollador.id">--</td>
+                            <td th:text="$desarrollador.nombre">--</td>
+                            <td th:text="$desarrollador.pais">--</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
 </table>
 </th:block>
-
-
 </body>
 </html>
