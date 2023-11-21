@@ -30,22 +30,7 @@
             </td>
             <td th:text="${videojuego.precio}">--</td>
             <td>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Pais</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="desarrollador : ${desarrolladores}">
-                        <td th:text="${desarrollador.id}">--</td>
-                        <td th:text="${desarrollador.nombre}">--</td>
-                        <td th:text="${desarrollador.pais}">--</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <a th:href="">Ver Desarrolladores</a>
             </td>
         </tr>
         </tbody>

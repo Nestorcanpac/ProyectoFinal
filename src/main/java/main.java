@@ -41,13 +41,35 @@ public class main {
             File f1 = new File("/home/nescanpac/IdeaProjects/ProyectoFinal/src/main/resources/videojuegos.json");
             Root root = objectMapper1.readValue(f1, Root.class);
 
+            ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+            templateResolver.setPrefix("templates/");
+            templateResolver.setSuffix(".html");
+
+            TemplateEngine templateEngine = new TemplateEngine();
+            templateEngine.setTemplateResolver(templateResolver);
+            Context context = new Context();
+
+            List<Videojuegos> videojuegoss = root.getVideojuegos();
+            List<Desarrollador> desarrolladores=videojuegoss.removeFirst().getDesarrollador();
+
+            context.setVariable("videojuegos", videojuegoss);
+            context.setVariable("desarrolladores",desarrolladores);
+
+
+
+
             for (Videojuegos videojuegos : root.getVideojuegos()) {
                 System.out.println("**************Videojuegos*****************");
                 System.out.println("ID: " + videojuegos.getId());
+                int num=1;
                 System.out.println("Título: " + videojuegos.getTitulo());
                 System.out.println("Género: " + videojuegos.getGenero());
                 System.out.println("Precio: " + videojuegos.getPrecio());
                 System.out.println("Imagen: " + videojuegos.getImagen());
+                String contenidoDesarrollador=templateEngine.process("plantilla2",context);
+                System.out.println(contenidoDesarrollador);
+                escriuHTML(contenidoDesarrollador,"src/main/resources/web/Desarrollador_"+videojuegos.getId()+".html");
+                num++;
 
                 for (Desarrollador desarrollador : videojuegos.getDesarrollador()) {
                     System.out.println("********Datos dessarrollador: **************");
@@ -62,31 +84,26 @@ public class main {
                 System.out.println("");
             }
 
-            ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
-            templateResolver.setPrefix("templates/");
-            templateResolver.setSuffix(".html");
-
-            TemplateEngine templateEngine = new TemplateEngine();
-            templateEngine.setTemplateResolver(templateResolver);
-
-            Context context = new Context();
-            List<Videojuegos> videojuegos = root.getVideojuegos();
-            List<Desarrollador> desarrolladores=videojuegos.removeFirst().getDesarrollador();
 
 
 
-            context.setVariable("videojuegos", videojuegos);
-            context.setVariable("desarrolladores",desarrolladores);
-            for (Videojuegos v: videojuegos){
 
-                System.out.println(v.getDesarrollador().toString());
-            }
 
-            String contingutHTML = templateEngine.process("plantilla1", context);
 
-            System.out.println(contingutHTML);
 
-            escriuHTML(contingutHTML, "src/main/resources/web/index.html");
+
+
+
+
+
+
+
+
+
+
+
+
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

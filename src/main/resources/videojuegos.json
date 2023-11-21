@@ -13,7 +13,7 @@
           "pais": "Estados Unidos"
         },
         {
-          "id": 1,
+          "id": 2,
           "nombre": "Alice Johnson",
           "pais": "Canadá"
         }
@@ -27,7 +27,7 @@
       "imagen": "https://estaticos-cdn.sport.es/clip/f1ed6a3d-8068-4be4-85e2-90426ae059a2_alta-libre-aspect-ratio_default_0.jpg",
       "desarrolladores": [
         {
-          "id": 2,
+          "id": 3,
           "nombre": "Gaying",
           "pais": "Rusia"
         }
@@ -41,7 +41,7 @@
       "imagen": "https://www.esferalibros.com/wp-content/uploads/2021/04/principal-portada-assasins-creed-unity-es-662x1024.jpg",
       "desarrolladores": [
         {
-          "id": 3,
+          "id": 4,
           "nombre": "Maria Rodriguez",
           "pais": "Francia"
         }

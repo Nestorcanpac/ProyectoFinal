@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Desarrolladores</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>Listas Desarrolladores</h1>
+<th:block th:if="${desarrolladores != null}">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Pais</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="desarrollador : ${desarrolladores}">
+            <td th:text="${desarrollador.id}">--</td>
+            <td th:text="${desarrollador.nombre}">--</td>
+            <td th:text="${desarrollador.pais}">--</td>
+        </tr>
+        </tbody>
+    </table>
+</th:block>
+</body>
+</html>
+
+
+
