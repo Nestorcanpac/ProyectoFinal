@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Videojuegos</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>Listas Videojuegos</h1>
+<th:block th:if="${videojuegos != null}">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Género</th>
+            <th>Imagen</th>
+            <th>Precio</th>
+            <th>Desarrollador</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="videojuego : ${videojuegos}">
+
+            <td th:text="${videojuego.id}">--</td>
+            <td th:text="${videojuego.titulo}">--</td>
+            <td th:text="${videojuego.genero}">--</td>
+            <td>
+               <img th:src="${videojuego.imagen}"/>
+            </td>
+            <td th:text="${videojuego.precio}">--</td>
+            <td>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Pais</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="desarrollador : ${desarrolladores}">
+                        <td th:text="${desarrollador.id}">--</td>
+                        <td th:text="${desarrollador.nombre}">--</td>
+                        <td th:text="${desarrollador.pais}">--</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</th:block>
+</body>
+</html>

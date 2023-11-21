@@ -36,4 +36,13 @@ public class Desarrollador {
     public void setPais(String pais) {
         this.pais = pais;
     }
+
+    @Override
+    public String toString() {
+        return "Desarrollador{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", pais='" + pais + '\'' +
+                '}';
+    }
 }

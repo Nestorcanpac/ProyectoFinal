@@ -78,4 +78,16 @@ public class Videojuegos {
     public void setDesarrolladores(List<Desarrollador> desarrolladores) {
         this.desarrolladores = desarrolladores;
     }
+
+    @Override
+    public String toString() {
+        return "Videojuegos{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", genero='" + genero + '\'' +
+                ", imagen='" + imagen + '\'' +
+                ", precio=" + precio +
+                ", desarrolladores=" + desarrolladores +
+                '}';
+    }
 }
