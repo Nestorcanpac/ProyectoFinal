@@ -50,26 +50,31 @@ public class main {
             Context context = new Context();
 
             List<Videojuegos> videojuegoss = root.getVideojuegos();
-            List<Desarrollador> desarrolladores=videojuegoss.removeFirst().getDesarrollador();
+
 
             context.setVariable("videojuegos", videojuegoss);
-            context.setVariable("desarrolladores",desarrolladores);
 
+
+            String enlace="web/Desarrollador_1.html";
+            context.setVariable("enlace",enlace);
 
 
 
             for (Videojuegos videojuegos : root.getVideojuegos()) {
                 System.out.println("**************Videojuegos*****************");
                 System.out.println("ID: " + videojuegos.getId());
-                int num=1;
+
                 System.out.println("Título: " + videojuegos.getTitulo());
                 System.out.println("Género: " + videojuegos.getGenero());
                 System.out.println("Precio: " + videojuegos.getPrecio());
                 System.out.println("Imagen: " + videojuegos.getImagen());
+
+
+                context.setVariable("desarrolladores",videojuegos.getDesarrollador());
                 String contenidoDesarrollador=templateEngine.process("plantilla2",context);
                 System.out.println(contenidoDesarrollador);
                 escriuHTML(contenidoDesarrollador,"src/main/resources/web/Desarrollador_"+videojuegos.getId()+".html");
-                num++;
+
 
                 for (Desarrollador desarrollador : videojuegos.getDesarrollador()) {
                     System.out.println("********Datos dessarrollador: **************");
@@ -84,6 +89,9 @@ public class main {
                 System.out.println("");
             }
 
+
+            String contenidoIndex=templateEngine.process("plantilla1",context);
+            escriuHTML(contenidoIndex,"src/main/resources/web/index.html");
 
 
 
