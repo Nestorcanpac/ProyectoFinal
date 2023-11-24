@@ -1,11 +1,11 @@
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.github.fge.jackson.JsonLoader;
 import com.github.fge.jsonschema.SchemaVersion;
 import com.github.fge.jsonschema.cfg.ValidationConfiguration;
 import com.github.fge.jsonschema.main.JsonSchema;
 import com.github.fge.jsonschema.main.JsonSchemaFactory;
-import org.thymeleaf.ITemplateEngine;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
@@ -16,7 +16,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class main {
@@ -61,41 +60,24 @@ public class main {
 
 
             for (Videojuegos videojuegos : root.getVideojuegos()) {
-                System.out.println("**************Videojuegos*****************");
-                System.out.println("ID: " + videojuegos.getId());
-
-                System.out.println("Título: " + videojuegos.getTitulo());
-                System.out.println("Género: " + videojuegos.getGenero());
-                System.out.println("Precio: " + videojuegos.getPrecio());
-                System.out.println("Imagen: " + videojuegos.getImagen());
-
-
                 context.setVariable("desarrolladores",videojuegos.getDesarrollador());
                 String contenidoDesarrollador=templateEngine.process("plantilla2",context);
-                System.out.println(contenidoDesarrollador);
                 escriuHTML(contenidoDesarrollador,"src/main/resources/web/Desarrollador_"+videojuegos.getId()+".html");
-
-
                 for (Desarrollador desarrollador : videojuegos.getDesarrollador()) {
-                    System.out.println("********Datos dessarrollador: **************");
-                    System.out.println("Desarrollador ID: " + desarrollador.getId());
-                    System.out.println("Nombre Dev: " + desarrollador.getNombre());
-                    System.out.println("Pais Dev: " + desarrollador.getPais());
-
-
                 }
-                System.out.println("");
-                System.out.println("****************************");
-                System.out.println("");
             }
 
 
             String contenidoIndex=templateEngine.process("plantilla1",context);
             escriuHTML(contenidoIndex,"src/main/resources/web/index.html");
 
+            File f2=new File("src/main/resources/XMLRSS/xmlrss.xml");
 
-
-
+            XmlMapper xmlMapper=new XmlMapper();
+            String xmlString= xmlMapper.writeValueAsString(root);
+            FileWriter fileWriter = new FileWriter(f2);
+            fileWriter.write(xmlString);
+            fileWriter.close();
 
 
 

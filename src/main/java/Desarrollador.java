@@ -1,7 +1,11 @@
-public class Desarrollador {
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
+public class Desarrollador {
+@JacksonXmlProperty(localName = "id")
     private int id;
+@JacksonXmlProperty(localName = "nombre")
     private String nombre;
+@JacksonXmlProperty(localName = "pais")
     private String pais;
 
     public Desarrollador(int id, String nombre, String pais) {

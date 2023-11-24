@@ -22,17 +22,9 @@
             <version>2.16.0-rc1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.16.0-rc1</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml/jackson-xml-databind -->
-        <dependency>
-            <groupId>com.fasterxml</groupId>
-            <artifactId>jackson-xml-databind</artifactId>
-            <version>0.6.2</version>
-        </dependency>
+
+
+
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
@@ -50,11 +42,6 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20231013</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.12.5</version> <!-- o la última versión disponible -->
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf -->
@@ -76,6 +63,9 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version> <!-- Reemplaza con la última versión -->
         </dependency>
+
+
+
 
 
     </dependencies>

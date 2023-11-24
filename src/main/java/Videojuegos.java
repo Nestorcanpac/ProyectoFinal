@@ -1,9 +1,9 @@
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+
 
 import java.util.List;
-@JacksonXmlRootElement(localName = "videojuegos")
+
 public class Videojuegos {
     @JacksonXmlProperty(localName = "id")
     private int id;
